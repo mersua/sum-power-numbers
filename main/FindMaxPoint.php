@@ -1,6 +1,9 @@
 <?php
 
-class FindMaxPoint {
+/**
+ * This class generate max point, wich we will use for find all numbers in the interval [10 ... maxPoint]  
+ */
+class FindMaxPoint extends AbstractNumbers {
     
     private $power;
     private $maxPoint;
@@ -47,7 +50,7 @@ class FindMaxPoint {
         
         $this->maxPoint = START_NUMBER_POINT;
         
-        while($this->maxPoint <= $this->getSumNumberInPower($this->maxPoint)) {
+        while($this->maxPoint <= $this->getSumNumberInPower($this->maxPoint, $this->power)) {
             $this->maxPoint = (int)($this->maxPoint . "9");
         }
         
@@ -64,7 +67,7 @@ class FindMaxPoint {
         
         $number = $this->maxPoint;
      
-        while($number >= $this->getSumNumberInPower($number)) {
+        while($number >= $this->getSumNumberInPower($number, $this->power)) {
             
             $this->maxPoint = $number;
             
@@ -87,24 +90,5 @@ class FindMaxPoint {
         return $this->maxPoint;
         
     }
-    
-    /**
-     * Method calculate sum of all numbers in power
-     * @param int $number
-     * @return int
-     */  
-    private function getSumNumberInPower($number) {
-        
-        //generate array of number
-        $numberToArray = str_split((string)$number);
-        
-        //calculate sum all numbers of array in power
-        $sum = 0;
-        foreach($numberToArray as $item) {
-            $sum += pow((int)$item, $this->power);
-        } 
-            
-        return $sum;
-    }
-    
+
 }
