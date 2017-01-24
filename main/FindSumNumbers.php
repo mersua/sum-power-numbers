@@ -74,4 +74,15 @@ class FindSumNumbers extends AbstractNumbers {
         
     }
     
+    /**
+     * Method return max Point
+     * @param void
+     * @return int
+     */ 
+    public function getMaxPoint() {
+        
+        return $this->objectMaxPointClass->find();
+        
+    }
+    
 }

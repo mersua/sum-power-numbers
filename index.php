@@ -11,7 +11,12 @@ require_once HOMEDIR . 'main/FindMaxPoint.php';
 require_once HOMEDIR . 'main/FindSumNumbers.php';
 
 // create object with power = 5
-$nums = new FindSumNumbers(6);
+$nums = new FindSumNumbers(5);
+
+// get max Point
+echo "<pre>";
+var_dump($nums->getMaxPoint());
+echo "</pre>";
 
 // array of all numbers
 echo "<pre>";
