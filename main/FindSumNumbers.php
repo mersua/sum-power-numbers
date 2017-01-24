@@ -33,6 +33,13 @@ class FindSumNumbers extends AbstractNumbers {
      */ 
     public function findArrayNumbers() {
         
+        //check field arrayNumbers        
+        if(!empty($this->arrayNumbers)) {
+            
+            return $this->arrayNumbers;
+                
+        }
+        
         for($i = 10; $i <= $this->objectMaxPointClass->find(); $i++) {
             
             if($i == $this->getSumNumberInPower($i, $this->objectMaxPointClass->getPower())) $this->arrayNumbers[] = $i;
@@ -50,13 +57,14 @@ class FindSumNumbers extends AbstractNumbers {
      */ 
     public function findSum() {
         
+        //check field arrayNumbers
         if(empty($this->arrayNumbers)) {
                     
             $this->arrayNumbers = $this->findArrayNumbers();
         
         }
         
-        foreach($this->findArrayNumbers() as $num) {
+        foreach($this->arrayNumbers as $num) {
                 
             $this->sum += $num;
                 
